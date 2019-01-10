@@ -4,6 +4,14 @@ from sudoku_board import SudokuBoard
 
 def main():
     board = SudokuBoard()
+    # board.add_element(0, 3, 3)
+    # board.add_element(0, 4, 1)
+    # board.add_element(0, 5, 6)
+    # board.add_element(0, 7, 5)
+    # board.add_element(0, 8, 9)
+
+    ###########
+
     # board.add_element(0, 0, 5)
     # board.add_element(0, 1, 3)
     # board.add_element(0, 4, 7)

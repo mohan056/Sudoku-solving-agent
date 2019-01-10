@@ -77,14 +77,23 @@ class SudokuBoard:
         return True
 
     def build_board(self):
-        counter = 0
-        for i in range(9):
-            row = input(f"Enter Row {i+1}: ")
+        col_counter = 0
+        for row_counter in range(9):
+            row = input(f"Enter Row {row_counter+1}: ")
             values = row.split(' ')
-            if len(values) == 9 or len(values) == 10:
+            if len(values) == 9:
                 for value in values:
-                    self.add_element(counter, i, value)
+                    self.add_element(row_counter, col_counter, int(value))
+                    col_counter += 1
+            elif len(values) == 10:
+                for value in values[:-1]:
+                    self.add_element(row_counter, col_counter, int(value))
+                    col_counter += 1
+            else:
+                print("Invalid input. Please try again")
+            col_counter = 0
             print(len(values))
+            print(values)
             print(row)
 
 
