@@ -25,17 +25,20 @@ class SudokuSolver:
                 for val in range(1, 10):
                     self.board.add_element(i, j, val)
                     if self.check_contraints_apply(val, i, j):
+                        flag = False
                         if i == 8 and j < 8:
-                            return self.backtracking(0, j+1)
-                        elif i < 8 and j < 8:
-                            return self.backtracking(i+1, j)
+                            flag = self.backtracking(0, j+1)
+                        elif i < 8 and j <= 8:
+                            flag = self.backtracking(i+1, j)
                         elif i == 8 and j == 8:
                             return True
+                        if flag:
+                            return flag
                 return False
             else:
                 if i == 8 and j < 8:
                     return self.backtracking(0, j + 1)
-                elif i < 8 and j < 8:
+                elif i < 8 and j <= 8:
                     return self.backtracking(i + 1, j)
                 elif i == 8 and j == 8:
                     return True
