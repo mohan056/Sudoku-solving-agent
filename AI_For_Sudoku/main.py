@@ -5,7 +5,7 @@ from sudoku_board import SudokuBoard
 def main():
     board = SudokuBoard()
     board.add_element(0, 3, 3)
-    board.add_element(0, 4, 3)
+    board.add_element(0, 4, 4)
     board.add_element(0, 5, 6)
     board.add_element(0, 7, 5)
     board.add_element(0, 8, 9)
@@ -44,13 +44,15 @@ def main():
     # board.add_element(8, 8, 9)
     # board.build_board()
     solver = SudokuSolver(board)
-    print("Board before solving: \n")
-    print(board, "\n")
-    if solver.backtracking(0, 0):
-        print("Sudoku has been solved \n")
-    # flag = solver.check_contraints_apply()
-    print(board)
     if solver.board.is_valid_full():
-        print("Solution Exists!!")
+        print("Board before solving: \n")
+        print(board, "\n")
+        if solver.backtracking(0, 0):
+            print("Sudoku has been solved \n")
+        print(board)
+        if solver.board.is_valid_full():
+            print("Solution Exists!!")
+    else:
+        print("Board entered is not valid. Please enter a valid board.")
 
 main()

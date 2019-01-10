@@ -68,12 +68,13 @@ class SudokuBoard:
         for i in range(9):
             for j in range(9):
                 elem = self.element(i, j)
-                if self.row_duplicates_exist(elem, i):
-                    return False
-                if self.column_duplicates_exist(elem, j):
-                    return False
-                if self.box_duplicates_exist(elem, i//3, j//3):
-                    return False
+                if elem != 0:
+                    if self.row_duplicates_exist(elem, i):
+                        return False
+                    if self.column_duplicates_exist(elem, j):
+                        return False
+                    if self.box_duplicates_exist(elem, i//3, j//3):
+                        return False
         return True
 
     def build_board(self):
