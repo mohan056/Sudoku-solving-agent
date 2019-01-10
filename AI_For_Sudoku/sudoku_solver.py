@@ -21,7 +21,7 @@ class SudokuSolver:
         if self.board.is_full():
             return True
         else:
-            if self.board.element(i, j) == -1:
+            if self.board.element(i, j) == 0:
                 for val in range(1, 10):
                     self.board.add_element(i, j, val)
                     if self.check_contraints_apply(val, i, j):
@@ -34,6 +34,7 @@ class SudokuSolver:
                             return True
                         if flag:
                             return flag
+                self.board.add_element(i, j, 0)
                 return False
             else:
                 if i == 8 and j < 8:

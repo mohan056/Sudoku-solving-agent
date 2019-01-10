@@ -5,7 +5,7 @@ class SudokuBoard:
     def __init__(self):
         self.board = []
         for i in range(9):
-            self.board.append([-1] * 9)
+            self.board.append([0] * 9)
         self.filled = False
 
     def add_element(self, i, j, value):
@@ -59,9 +59,8 @@ class SudokuBoard:
         return board_str
 
     def is_full(self):
-        count = 0
         for row in self.board:
-            if -1 in row:
+            if 0 in row:
                 return False
         return True
 
