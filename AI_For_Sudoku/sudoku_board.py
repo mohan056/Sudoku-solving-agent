@@ -64,6 +64,29 @@ class SudokuBoard:
                 return False
         return True
 
+    def is_valid_full(self):
+        for i in range(9):
+            for j in range(9):
+                elem = self.element(i, j)
+                if self.row_duplicates_exist(elem, i):
+                    return False
+                if self.column_duplicates_exist(elem, j):
+                    return False
+                if self.box_duplicates_exist(elem, i//3, j//3):
+                    return False
+        return True
+
+    def build_board(self):
+        counter = 0
+        for i in range(9):
+            row = input(f"Enter Row {i+1}: ")
+            values = row.split(' ')
+            if len(values) == 9 or len(values) == 10:
+                for value in values:
+                    self.add_element(counter, i, value)
+            print(len(values))
+            print(row)
+
 
 
 
