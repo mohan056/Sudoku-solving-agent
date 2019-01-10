@@ -4,11 +4,11 @@ from sudoku_board import SudokuBoard
 
 def main():
     board = SudokuBoard()
-    # board.add_element(0, 3, 3)
-    # board.add_element(0, 4, 1)
-    # board.add_element(0, 5, 6)
-    # board.add_element(0, 7, 5)
-    # board.add_element(0, 8, 9)
+    board.add_element(0, 3, 3)
+    board.add_element(0, 4, 3)
+    board.add_element(0, 5, 6)
+    board.add_element(0, 7, 5)
+    board.add_element(0, 8, 9)
 
     ###########
 
@@ -42,7 +42,7 @@ def main():
     # board.add_element(8, 4, 8)
     # board.add_element(8, 7, 7)
     # board.add_element(8, 8, 9)
-    board.build_board()
+    # board.build_board()
     solver = SudokuSolver(board)
     print("Board before solving: \n")
     print(board, "\n")

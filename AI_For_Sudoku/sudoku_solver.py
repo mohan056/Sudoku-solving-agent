@@ -17,7 +17,7 @@ class SudokuSolver:
         return not(rows_flag or columns_flag or box_flag)
 
     def backtracking(self, i, j):
-        # print(i, ", ", j)
+        print(i, ", ", j)
         if self.board.is_full():
             return True
         else:
